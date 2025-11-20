@@ -13,6 +13,13 @@ const App: React.FC = () => {
   const [mineralData, setMineralData] = useState<MineralAnalysis | null>(null);
   const [chatSession, setChatSession] = useState<Chat | null>(null);
 
+  // Scroll to top when result is displayed
+  useEffect(() => {
+    if (appState === AppState.RESULT) {
+      window.scrollTo(0, 0);
+    }
+  }, [appState]);
+
   const handleImageSelected = async (base64: string, mimeType: string) => {
     setImageBase64(base64);
     setAppState(AppState.ANALYZING);
@@ -57,7 +64,7 @@ const App: React.FC = () => {
 
         {appState === AppState.RESULT && mineralData && imageBase64 && (
           <>
-            <div className="flex-grow pt-8">
+            <div className="flex-grow">
                <MineralResult 
                  analysis={mineralData} 
                  imageSrc={imageBase64} 
