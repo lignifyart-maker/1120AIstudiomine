@@ -1,0 +1,7 @@
+{
+  "name": "Mineral Lens",
+  "description": "A clean, minimalist app for identifying minerals, crystals, and rocks using AI, with detailed analysis and follow-up chat capabilities.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
